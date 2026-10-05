@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@theme {
+  --color-paper: #f4f2ec;
+  --color-ink: #10232a;
+  --color-teal: #0b7a96;
+  --color-teal-deep: #075468;
+  --color-aqua: #a9d3dd;
+  --color-mist: #dfeef1;
+  --color-line: #c9dde2;
+  --color-clay: #b98f6e;
+
+  --font-editorial: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
+
+  --radius-card: 18px;
+}
+
+html {
+  background: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+::selection {
+  color: white;
+  background: var(--color-teal);
+}
+
+/* Fallback de altura para máscaras de linha do SplitText */
+[data-reveal] {
+  font-kerning: none;
+}
+
+/* ---------- Tema wellness: mesmos tokens, paleta de areia, musgo e sálvia ---------- */
+.theme-wellness {
+  --color-paper: #efe9df;
+  --color-ink: #2e3a32;
+  --color-teal: #6f8a72;
+  --color-teal-deep: #4d6352;
+  --color-aqua: #d8dccb;
+  --color-mist: #e5dfd3;
+  --color-line: #d6cec0;
+  --color-clay: #b98f6e;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body:has(.theme-wellness) {
+  background: #efe9df;
+}
+
+.theme-wellness ::selection {
+  background: #6f8a72;
+}
+
+.arch-window {
+  clip-path: inset(0% 33% 0% 33% round 17vw 17vw 0px 0px);
+}
+
+@media (max-width: 700px) {
+  .arch-window {
+    clip-path: inset(0% 10% 0% 10% round 40vw 40vw 0px 0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-window {
+    clip-path: none;
+  }
+}
+
+/* ---------- Hero (estrutura da referência de vinho) ---------- */
+.hero-window {
+  clip-path: polygon(31% 0%, 69% 0%, 71% 5%, 71% 100%, 29% 100%, 29% 5%);
+}
+
+.hero-spa img {
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+}
+
+@media (max-width: 700px) {
+  .hero-window {
+    clip-path: polygon(16% 0%, 84% 0%, 88% 3%, 88% 100%, 12% 100%, 12% 3%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-window {
+    clip-path: none;
+  }
+}
